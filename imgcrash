@@ -1,0 +1,24 @@
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel
+from PyQt5.QtGui import QPixmap
+
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        # Configurar a janela principal
+        self.setWindowTitle("Exemplo de imagem de fundo com PyQt5")
+        self.setGeometry(100, 100, 800, 600)
+
+        # Carregar a imagem
+        pixmap = QPixmap("caminho/para/imagem.png")
+
+        # Definir a imagem como plano de fundo da janela principal
+        label = QLabel(self)
+        label.setPixmap(pixmap)
+        label.resize(self.width(), self.height())
+
+if __name__ == '__main__':
+    app = QApplication([])
+    window = MainWindow()
+    window.show()
+    app.exec_()
